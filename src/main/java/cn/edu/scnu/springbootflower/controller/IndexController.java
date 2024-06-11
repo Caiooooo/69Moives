@@ -36,10 +36,11 @@ public class IndexController {
     public String index(@RequestParam(name = "pageNo", defaultValue = "1")Integer pageNo,
                         @RequestParam(name = "fname", defaultValue = "")String fname,
                         @RequestParam(name = "fclass", defaultValue = "")String fclass,
+                        @RequestParam(name = "orderMethod", defaultValue = "")String orderMethod,
                         Integer minprice,
                         Integer maxprice,
                         Model model) {
-        Integer pageSize = 8;
+        Integer pageSize = 16;
         if (minprice == null) {
             minprice = 0;
         }
@@ -49,9 +50,35 @@ public class IndexController {
         Map<String, Object> map = flowerService.queryPage(fname,fclass,minprice,maxprice,pageNo, pageSize);
         int totalRecords = (Integer)map.get("count");
         System.out.println(totalRecords);
+
+
+
         List<Flower> flowerlist = (List<Flower>)map.get("recourds");
+        // TODO: order the flowerlist
+        /*
+        * 按照热度进行排行
+         */
+        if(orderMethod!=null){
+            if(orderMethod.equals("本周排行") ){
+
+            }else if(orderMethod.equals("本月排行")){
+
+            }else if(orderMethod.equals("全部排行")){
+
+            }else if(orderMethod.equals("按好评排行")){
+
+            }
+
+        }
 
         Integer pageCount = (totalRecords % pageSize == 0) ? (totalRecords/pageSize) : ((totalRecords/pageSize)+1);
+        int startNum = 16 * (pageNo - 1);
+        int endNum = Math.min(flowerlist.size(), 16*pageNo);
+
+// Extract the first 16 elements
+        flowerlist = flowerlist.subList(startNum, endNum);
+
+
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("pageCount", pageCount);
         model.addAttribute("pageSize", pageSize);
