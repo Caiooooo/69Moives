@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <script src="/js/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="/js/regist_ajax.js"></script>
+</head>
+<body>
+<div id="top" th:insert="top.html"/>
+<br><br><center>
+  <form>
+    <table style="width:550px; border-width:3px; border-style:dotted;">
+      <tr><td colspan="3" style="text-align:center;height:60px;">
+        注册新用户--填写注册信息，输入用户名和密码!</td></tr>
+      <tr>
+        <td style="text-align:right;width:150px;height:30px;">E-mail地址：</td>
+        <td align=left style="width:180px;"><input type=text name="email" value="a@163.com"></td>
+        <td align=left>
+          <span id="email_msg"></span></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;width:150px;height:30px;">密码：</td>
+        <td align=left style="width:180px;"><input type="password" name="passw1"></td>
+        <td align=left><span id="passw1_msg"></span></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;width:150px;height:30px;">确认密码：</td>
+        <td align=left style="width:180px;"><input type=password name="passw2"></td>
+        <td align=left><span id="passw2_msg"></span></td>
+      </tr>
+      <tr><td colspan="3" style="text-align:center;height:60px;">
+        <input type=submit name=s value="注册">
+      </td></tr>
+      <tr><td colspan="3" style="text-align:center;height:60px;">
+        <span id="form_msg"></span>
+      </td></tr>
+    </table>
+  </form>
+</center>
+</body>
+</html>

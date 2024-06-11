@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<title>填写订单</title>
+	<link rel="stylesheet" href="/css/basic.css" >
+	<link rel="stylesheet" href="/css/order.css" >
+	<link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css" >
+	<link rel="icon" href="/image/icon.png" type="image/png">
+	<script src="/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/js/order_ajax.js"></script>
+</head>
+<body>
+<center>
+<div id="top" th:insert="top.html"/>
+	<div id="section">
+		<div id="center">
+		<div class="edit-order">
+			<div class="order-info">
+				<div class="info-bar">
+					<center><span>填写订单信息</span></center>
+				</div>
+			</div>
+			<div id="select-consignee" class="order-bar">
+				<div class="bar-title">
+					<span>收货人信息</span>
+					<a href="javascript:ConsigneeOper('member','add')">新增收货人+</a>
+				</div>				
+
+
+				<div th:each="customer:${customers}">
+					<input type="hidden" name="custID" th:value="${customer.custId}">
+
+				<div th:id="'scn'+${customer.custId}" class="bar-info">
+					<div th:if="${customer.cdefault}=='1'">
+					<div class="selected select-name" onclick="Select(this)" th:text="${customer.sname}"></div>
+					<span class="custID" id="selectedcustID" th:text="${customer.custId}" style="display:none;"></span>
+					<span class="name" id="selectedname" th:text="${customer.sname}" style="display:none;"></span>
+					<span class="address" id="selectedaddress" th:text="${customer.address}"></span>
+					<span class="phone" id="selectedphone" th:text="${customer.mobile}"></span>
+					<span class="default-address">默认地址</span>
+						<a class="edit" th:href="'javascript:editCustomer('+${customer.custId}+')'">编辑</a>
+					</div>
+					<div th:if="${customer.cdefault}=='0'">
+					<div class="select select-name" onclick="Select(this)" th:text="${customer.sname}"></div>
+					<span class="custID" id="selectcustID" th:text="${customer.custId}" style="display:none;"></span>
+					<span class="name" id="selectname" th:text="${customer.sname}"></span>
+					<span class="address" id="selectaddress" th:text="${customer.address}"></span>
+					<span class="phone" id="selectphone" th:text="${customer.mobile}"></span>
+						<a class="edit" th:href="'javascript:deleteCustomer('+${customer.custId}+')'">删除</a>
+						<a class="edit" th:href="'javascript:editCustomer('+${customer.custId}+')'">编辑</a>
+
+						<a class="edit" th:href="'javascript:setDefault('+${customer.custId}+')'">设为默认</a>
+					</div>
+				</div>
+				</div><!-- each结束-->
+			</div>
+
+			<div class="order-bar">
+				<div class="bar-title">
+					<span>订购人信息</span>
+				</div>
+				<div class="bar-info">
+					<p th:if="${member.getMname()}==''">
+					<input id="buy-name" type="text" placeholder="您的姓名" ></p>
+					<p th:if="${member.getMname()}!=''">
+						<input id="buy-name" type="text" th:value="${member.getMname()}"></p>
+					<p th:if="${member.getMobile()}==''">
+						<input id="buy-phone" type="text" placeholder="手机号码或电话"></p>
+					<p th:if="${member.getMobile()}!=''">
+						<input id="buy-phone" type="text" th:value="${member.getMobile()}"></p>
+					<input id="buy-email" class="disabled" type="text" th:value="${member.getEmail()}" disabled="disabled">
+					<button id="add-buyer" onclick="AddBuyer()">确定</button>
+				</div>
+			</div>
+			<div class="order-bar">
+				<div class="bar-title">
+					<span class="deliver-time">配送日期</span>
+					<span>配送时段</span>
+				</div>
+				<div class="bar-info">
+					<input name="date" class="date" type="date">
+					<input type="hidden" name="time" value="不限">
+					<div class="selected time">不限</div>
+					<div class="select time">上午</div>
+					<div class="select time">下午</div>
+					<div class="select time">晚上</div>
+					<div class="select time">定时</div>
+				</div>
+			</div>
+			
+			<div>
+				<div class="edit-order">
+					<div class="order-info">
+						<div class="info-bar">
+							<span>确认订单信息</span>
+						</div>
+
+						<div th:each="cart:${carts}">
+
+							<div class="order-bar" >
+
+								<img class="flower-pic" th:src="'/picture/'+${cart.pictures}" alt="鲜花图片">
+								<div class="flower-desc">
+									<a th:href="'index/flowerDetail?floweid='+${cart.flowerid}" th:text="${cart.fname}">fname</a><br>
+									<span class="flower-price" th:text="${cart.yourprice}"></span>
+									<span class="num"> x <span th:text="${cart.num}"></span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="submit-bar">
+			<span th:text="${sum}+'件商品，总金额：￥'+${total}+'元'"></span><br>
+			<span>配送费：￥0元</span><br><br>
+			<span>提交订单应付总额：￥<span class="total-price" th:text="${total}"></span>元</span><br>
+			<button id="submit" class="submit">提交订单</button><br><br>
+			<span id="send-to">配送至：</span><br>
+			<span id="send-for">收货人：</span><br>
+		</div>
+			</div>
+		<div id="add-panel">
+			<div class="title-bar">
+				<span class="title">添加联系人</span>
+				<span class="close-panel">&times;</span>
+			</div>
+			<div class="edit-panel">
+				<label for="addName">姓名：</label>
+				<input id="addName" type="text" name="addName"><br>
+				<label for="addPhone">电话：</label>
+				<input id="addPhone" type="number" name="addPhone"><br>
+				<label for="addProvince">省份：</label>
+				<input id="addProvince" type="text" name="addProvince"><br>
+				<label for="addCity">城市：</label>
+				<input id="addCity" type="text" name="addCity"><br>
+				<label for="addAddr">详细地址：</label>
+				<input id="addAddr" type="text" name="addAddr">
+			</div>
+			<button id="add-btn" class="save" onclick="javascript:SaveConsignee('member','add')">保存</button>
+			<button id="edit-btn" class="save">保存</button>
+		</div>
+
+		</div>
+	</div>
+	</div>
+	<div id="bottom" th:insert="bottom.html"/>
+</center>
+</body>
+</html>

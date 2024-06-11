@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+ <html lang="en" xmlns:th="http://www.thymeleaf.org">
+ <head>
+  <meta charset="UTF-8">
+  <title>欢迎登录六九电影网</title>
+  <script src="/js/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="/js/adminlogin_ajax.js"></script>
+ </head>
+ <body>
+ <div id="top" th:insert="admintop.html"/>
+ <br><br><center>
+
+  <h1>六九电影网后台登录</h1>
+  <form >
+   <table style="width:480px; border-width:3px; border-style:dotted;">
+    <tr>
+     <td style="text-align:right;height:30px;">用户名：</td>
+     <td align=left><input type=text name="username" value="admin"></td>
+    </tr>
+    <tr>
+     <td style="text-align:right;height:30px;">密码：</td>
+     <td align=left><input type="password" name="password" value="123"></td>
+    </tr>
+    <tr><td colspan=2 style="text-align:center;height:60px;">
+     <input type="submit" name="s" value="登录">
+    </td></tr>
+    <tr>
+     <td colspan="2">
+      <span id = "form_msg" style="color:red"></span>
+     </td>
+    </tr>
+   </table>
+  </form>
+ </center>
+ </body>
+ </html>

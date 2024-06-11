@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<link href="/css/prodList.css" rel="stylesheet" type="text/css">
+	<script src="/js/jquery-1.4.2.js"></script>
+</head>
+<body>
+<center>
+	<div id="top" th:insert="top.html"/>
+<div id="content">
+		<div id="search_div">
+			<form method="post" action="/index">
+				<span class="input_span">
+					电影名：<input type="text" name="minprice"/>
+				演员名：<input type="text" name="minprice"/>
+				导演名：<input type="text" name="minprice"/></span>
+				<span class="input_span">
+				类型：
+				<select name="fclass">
+					<Option value="">不限</option>
+					<option th:each="fclass:${fclasses}" th:value="${fclass}" th:text="${fclass}"></option>
+				</select>
+				地区：
+				<select name="order">
+					<option value="">不限</option>
+					<option th:each="fclass:${fclasses}" th:value="${fclass}" th:text="${fclass}"></option>
+				</select>
+				排行方式：
+				<select name="order">
+					<option value="">默认</option>
+					<option value="">本周排行</option>
+					<option value="">本月排行</option>
+					<option value="">全部排行</option>
+					<option value="">按好评排行</option>
+				</select>
+				</span>
+<!--				<span class="input_span">热度区间：<input type="text" name="minprice"/> - <input type="text" name="maxprice" /></span>-->
+				<input type="submit" value="查 询">
+			</form>
+		</div>
+
+
+	<div id="prod_content" style="text-align: center">
+		<div th:each="flower:${flowerlist}">
+		<div class="prod_div">
+			<a th:href="'/index/flowerdetail?flowerid='+${flower.flowerid}"><img th:src="@{'/picture/'+${flower.picturem}}" border="0"/>
+			</a>
+
+				<div id="prod_name_div" th:text="${flower.fname}"></div>
+				<div id="prod_price_div" th:text="'热度 '+${flower.price}"></div>
+				<div>
+					<div id="gotocart_div">
+					<a th:href="'/cart/addCart?flowerid='+${flower.flowerid}">加入购物车</a></div>
+					<div id="say_div" th:text="${flower.sellednum}+'人购买'"></div>
+				</div>
+			</div>
+		</div>
+
+		<!--分页超链接 -->
+		<div style="clear: both"></div>
+		<div style="clear: both">
+			<br/><br/>
+			<span><a th:href="@{/index(pageNo=1, fname=${fname}, fclass=${fclass},minprice=${minprice},maxprice=${maxprice})}">首页</a></span>&nbsp;&nbsp;
+			<span th:switch="${currentPage}">
+					<a th:case="1" th:href="@{/index(pageNo=${currentPage},fname=${fname},fclass=${fclass},minprice=${minprice},maxprice=${maxprice})}">上一页</a>&nbsp;&nbsp;
+					<a  th:case="*" th:href="@{/index(pageNo=${currentPage - 1},fname=${fname},fclass=${fclass},minprice=${minprice},maxprice=${maxprice})}">上一页</a>
+				</span>
+
+			<span th:if="${currentPage}==${pageCount}">
+				<a th:href="@{/index(pageNo=${pageCount},fname=${fname},fclass=${fclass},minprice=${minprice},maxprice=${maxprice})}">下一页</a>&nbsp;&nbsp;
+			</span>
+			<span th:unless="${currentPage}==${pageCount}">
+				<a th:href="@{/index(pageNo=${currentPage + 1},fname=${fname},fclass=${fclass},minprice=${minprice},maxprice=${maxprice})}">下一页</a>
+			</span>
+
+			<span>&nbsp;&nbsp;<a th:href="@{/index(pageNo=${pageCount},fname=${fname},fclass=${fclass},minprice=${minprice},maxprice=${maxprice})}">尾页</a></span>
+			<br/><br/>
+		</div>
+	</div>
+</div>
+</div>
+	<div id="bottom" th:insert="bottom.html"/>
+</center>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<link href="/css/orderList.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/static/js/jquery-1.4.2.js"></script>
+</head>
+<body>
+<center>
+<div id="top" th:insert="top.html"/>
+
+	<!-- 提示您暂时没有订单信息 -->
+	<p  class="no_order_info" th:if="${showorders.size() eq 0}">您暂时没有订单信息</p>
+
+<!-- 模版数据 -start -->
+<div th:each="showorder:${showorders}">
+	<div style="margin: 0 auto;width:999px;">
+		<dl class="Order_information">
+			<dt><h3>订单信息</h3>	</dt>	
+			<dd style="line-height: 26px;">
+				订单编号：<span th:text="${showorder.orderId}"/>
+				<br />
+				下单时间：<span th:text="${showorder.inputtime}"/>
+				<br /> 
+				订单金额：<span th:text="'￥'+${showorder.shifu}+'元'"/>
+				<br /> 
+				订单状态：<span style="color:red;font-weight: bold;" th:text="${showorder.status}"/>
+				<!-- 订单状态判断 ，未付款订单允许删除！-->
+				<span th:switch="${showorder.status}">
+					<span th:case="未付款">
+							<a th:href="'/order/delorder?id='+${showorder.orderId}" th:attr="id=${showorder.orderId}">
+							<img src="/image/sc.jpg" width="69" height="19"/>
+						</a>
+						&nbsp;
+				 		<a th:href="'/order/pay?orderId='+${showorder.orderId}">
+					 		<img src="/image/zx.jpg" width="69" height="19">
+						</a>
+					</span>
+					<span th:case="已发货">&nbsp;
+						<a th:href="'/order/updateOrder?orderId='+${showorder.orderId}">确认收货</a>
+					</span>
+				</span><!-- 订单状态判断结束 -->
+				<br /> 
+				收货人：<span th:text="${showorder.sname}"/>
+				<br/> 
+				收货地址：<span th:text="${showorder.address}"/>
+
+			</dd>
+		</dl>
+	
+		<table width="999px" border="0" cellpadding="0"
+			cellspacing="1" style="background:#d8d8d8;color:#333333">
+			<tr>
+				<th width="249" height="30" align="center" valign="middle" bgcolor="#f3f3f3">商品图片</th>
+				<th width="100" align="center" valign="middle" bgcolor="#f3f3f3">商品名称</th>
+				<th width="100" align="center" valign="middle" bgcolor="#f3f3f3">原价</th>
+				<th width="100" align="center" valign="middle" bgcolor="#f3f3f3">现价</th>
+				<th width="100" align="center" valign="middle" bgcolor="#f3f3f3">购买数量</th>
+				<th width="100" align="center" valign="middle" bgcolor="#f3f3f3">总价</th>
+				<th width="100" align="center" valign="middle" bgcolor="#f3f3f3">状态</th>
+			</tr>
+
+			<!--  map循环开始-->
+			<div th:each="item,stat:${map}">
+				<div th:if="${stat.current.key eq showorder.orderId}">
+					<!-- shoplist循环开始-->
+				<div th:each="shoplist:${stat.current.value}">
+			<tr>
+				<td align="center" valign="middle" bgcolor="#FFFFFF">
+				<a th:href="'/index/flowerdetail?flowerid='+${shoplist.flowerid}">
+					<img th:src="'/picture/'+${shoplist.pictures}" border=0></a>
+				</td>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" th:text="${shoplist.fname}"> </td>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" th:text="${shoplist.price}">元</td>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" th:text="${shoplist.yourprice}">元</td>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" th:text="${shoplist.num}">件</td>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" th:text="${shoplist.yourprice * shoplist.num}">元</td>
+				<td align="center" valign="middle" bgcolor="#FFFFFF">
+					<div th:if="${showorder.status eq '未评价'}">
+						<a th:href="'/order/evaluate?orderId='+${shoplist.orderId}">评价</a>
+					</div>
+					<div th:unless="${showorder.status eq '未评价'}" th:text="${showorder.status}" />
+				</td>
+			</tr>
+				</div><!--  shoplist循环结束-->
+				</div><!--if结束-->
+			</div><!--  map循环结束-->
+
+		</table>		
+		<div class="Order_price" th:text="'￥'+${showorder.shifu}+'元'"></div>
+	</div>
+
+</div>
+	<!-- 模版数据 -end -->
+	</center>
+</body>
+</html>

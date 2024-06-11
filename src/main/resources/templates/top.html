@@ -1,0 +1,51 @@
+<center>
+  <table width=999px border=0>
+    <tr>
+      <td rowspan=2><img th:src="@{/image/logo.jpg}" style="width:216px; height:68px"> </td>
+      <td style="font-size:x-small;">
+        <p th:if="${session.memberLogin}">
+          <span th:text="'欢迎' + ${session.memberLogin.getEmail()}+'光临六九电影网'" style="text-align: center"></span>
+        </p>
+        <p th:unless="${session.memberLogin}">
+          <span id="loginbar1" style="text-align: center">欢迎光临六九电影网</span>
+        </p>
+
+      </td>
+
+      <td style=" font-size:x-small;text-align:right;color:midnightblue">
+        <a href="" style="text-decoration:none;color:midnightblue">我的帐户</a>&nbsp;|
+        <a href="/order/showorder" style="text-decoration:none;color:midnightblue">我的订单</a>&nbsp;|
+        <a href="" style="text-decoration:none;color:midnightblue">添加鲜花</a>&nbsp;|
+        <a href="/cart/showCart" style="text-decoration:none;color:midnightblue">购物车</a>&nbsp;|&nbsp;帮助中心
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p th:if="${session.memberLogin}">
+          <a href="/index/logOut" style="font-size:x-small;text-decoration:none;color:midnightblue">退出</a>&nbsp;</span>
+          <a href="/index/toRegister" style="font-size:x-small;text-decoration:none;color:midnightblue">注册</a>&nbsp;&nbsp;
+          <a href="/admin/toAdminLogin" style="font-size:x-small;text-decoration:none;color:midnightblue">后台登录</a>&nbsp;&nbsp;
+        </p>
+        <p th:unless="${session.memberLogin}">
+        <span id="loginbar2">
+          <a href="/index/toLogin" style="font-size:x-small;text-decoration:none;color:midnightblue">登录</a>&nbsp;</span>
+          <a href="/index/toRegister" style="font-size:x-small;text-decoration:none;color:midnightblue">注册</a>&nbsp;&nbsp;
+          <a href="/admin/toAdminLogin" style="font-size:x-small;text-decoration:none;color:midnightblue">后台登录</a>&nbsp;&nbsp;
+        </p>
+      </td>
+      <td style="text-align:right;"><img th:src="@{/image/ttel.jpg}" style="filter: grayscale(100%)"></td>
+    </tr>
+    <tr style="background-color: black;text-align: center;line-height: 40px"><td colspan=3 style="align-content: center">
+      <span style="color:White;"> |</span> &nbsp; &nbsp; &nbsp;
+      <a href="/index" p style="text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:宋体"> 主页</span></a>
+      &nbsp;&nbsp;&nbsp; <span style=" color:White;"> |</span> &nbsp;&nbsp;&nbsp;
+      <a href="/index/showflower"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:宋体">电影</span></a>
+      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
+    </td>
+    </tr>
+    <tr><td colspan=3>
+<span style="font-weight:bold; font-size:x-small; font-family:宋体">
+</span>
+    </td>
+    </tr>
+  </table></center>

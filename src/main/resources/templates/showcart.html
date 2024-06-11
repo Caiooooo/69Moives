@@ -1,0 +1,67 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>购物车</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<script src="/js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="/js/showcart_ajax.js"></script>
+</head>
+<body>
+<center>
+
+	<div id="top" th:insert="top.html"/>
+	<br/><br/>
+<img th:src="@{/image/cartbg1.jpg}"><br/><br/>
+<form action="/order/order" name="form1" method="post">
+<table style="width:881px;border-width:1px; border-style:groove;font-size:x-small;">
+<tr style="background:url('/image/cartbg.jpg'); text-align:center;font-weight:bold; border-width:1px; border-style:groove;">
+<td>选择</td><td>编号</td><td>商品名称</td><td>市场价</td><td>现价</td><td>数量</td><td>金额</td><td>删除商品</td>
+</tr> 
+<tbody id="goods">
+<!--  此处加each循环-->
+<div th:each="cart:${carts}">
+<tr style='text-align:center;height:50px;line-height:50px;'>
+<td><input type="checkbox" name="cartId"
+							th:value="${cart.cartId}" checked onclick="chk()"></td>
+<td th:text="${cart.cartId}"></td>
+
+<td><div style='height:50px; float:left;'>
+	<a th:href="'/index/flowerdetail?flowerid='+${cart.flowerid}">
+		<img th:src="'/picture/'+${cart.pictures}" width="48" height="51" border=0/>
+	</a></div>
+<div style="height:50px; float:left;" th:text="${cart.fname}"></div>
+</td>
+<td th:text="${cart.price}">202</td>
+<td th:text="${cart.yourprice}">178<td>
+
+ <input type="button" value="-" th:onclick="change(this, -1,[[${cart.cartId}]]);"/>
+ <input type="text" size="3" name = "num" readonly th:value="${cart.num}"/>
+ <input type="button" value="+" th:onclick="change(this, 1,[[${cart.cartId}]]);"/>
+</td>
+<td></td>
+<td>
+	<input type="image" th:onclick="del(this,[[${cart.cartId}]]);" width="41" height="20"
+		src="/image/04shop_deleteID.gif">
+</td>
+</tr></div>
+</tbody>
+	<tr>
+		<td colspan="6" align="right">总计:￥</td>
+		<td id="total" align="right"
+			style="color: red; font-size: 16px; font-bold: true;"></td>
+		<td>元</td>
+	</tr>
+ </table>
+</form>
+
+<div style="width:881px;text-align:center;">
+<a href="/index"><img th:src="@{/image/continue.jpg}" border=0></a>&nbsp;
+<a href="/cart/clearCart"><img src="/image/clearCart.jpg" border=0></a>&nbsp;
+<!--<input type='image' src='/image/submitOrder.jpg' onclick='javascript:form1.submit()'>-->
+<a class="goto_order" href="javascript:void(0)"><img src="/image/submitOrder.jpg"></a>
+</div>
+	<br/>
+	<div id="bottom" th:insert="bottom.html"/>
+</center>
+</body>
+</html>

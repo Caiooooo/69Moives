@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<link href="css/prodList.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<center>
+	<div id="top" th:insert="top.html"/>
+
+ <table style='width:830px;border-width:1px;border-style:dotted;align:center;'>
+     <tr>
+        <td rowspan=7 width=200>
+         <img th:src="'/picture/'+${flower.pictureb}"></td>
+        <td colspan=2 align=center><div style='font-weight:bold;font-size:medium;height:40px;line-height:40px;color:#000066;text-align:center;border-width:1px;  border-style:solid;border-color:red;'>
+            <span th:text="${flower.fname}">花名</span></div></td>
+     </tr>
+     <tr>
+       <td width=50><font size=2>材料：</font></td>
+       <td><font size=2 th:text="${flower.cailiao}" /></td>
+     </tr>
+     <tr>
+     	<td width=50><font size=2>包装：</font></td>
+     	<td><font size=2 th:text="${flower.baozhuang}"/></td>
+     </tr>
+    <tr>
+     	<td width=50><font size=2>花语：</font></td>
+     	<td><span size=2 th:text="${flower.huayu}"/></td>
+     </tr>
+     <tr>
+     	<td width=50><font size=2>说明：</font></td>
+     	<td><span size=2 th:text="${flower.shuoming}"/></td>
+     </tr>
+     <tr>
+     	<td colspan=2>
+            <div style='text-align:left;font-size: medium; color: #000066;'>
+     	        <div style='text-decoration:line-through;margin-top:8px;'>
+                    原价:￥<span th:text="${flower.price}"/>元
+                </div>
+     	        现价：<b>￥<span size=4 color=red th:text="${flower.yourprice}"></span>元</b>
+            </div>
+     	</td>
+     </tr>
+     <tr>
+     	<td colspan=2>
+            <a th:href="'/cart/addcart?flowerid='+${flower.flowerid}">
+                <img th:src="@{/image/ingwc_ico.jpg}"></a>
+
+     </tr>
+     <tr><td colspan=3><img th:src="'/picture/'+${flower.pictured}" border=0  onerror="this.style.display='none'"></td></tr>
+     <tr><td colspan=3><img th:src="'/picture/'+${flower.cailiaopicture}" border=0  onerror="this.style.display='none'"></td></tr>
+     <tr><td colspan=3><img th:src="'/picture/'+${flower.bzpicture}" border=0  onerror="this.style.display='none'"></td></tr>
+ </table>
+
+<table style='width:830px;font-weight:bold;border-width:1px;border-style:dotted;align:center;height:40px;'>
+<tr><td>用户评价</td></tr>
+</table>
+<div th:each="shoplist:${shoplists}">
+<!--评价循环开始 -->
+<table style='width:830px;font-size:small;border-width:1px;border-style:solid;align:center;height:120px;'>
+<tr>
+<td width=130 rowspan=2><img th:src="'/picture/'+${flower.pictures}"><br>
+
+</td>
+<td>整体评价：
+    <th:block th:each="i: ${#numbers.sequence(1, shoplist.pjstar)}">
+    <img src="/image/review_star_fen.gif">
+    </th:block>
+    <th:block th:if="${shoplist.pjstar lt 5}">
+        <th:block th:each="i: ${#numbers.sequence(shoplist.pjstar + 1,5)}">
+            <img src="/image/review_star_fen_gray.gif">
+        </th:block>
+    </th:block>
+
+</td>
+<td align=right>评价时间：<span th:text="${shoplist.pjtime}"/> &nbsp;&nbsp;&nbsp;IP:<span th:text="${shoplist.pjip}"/></td>
+</tr>
+<tr><td colspan=2 th:text="'评价内容：'+${shoplist.pjcontent}"></tr>
+</table>
+</div>
+</center>
+</body>
+</html>
