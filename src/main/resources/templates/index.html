@@ -44,7 +44,7 @@
 	<div id="prod_content" style="text-align: center">
 		<div th:each="flower:${flowerlist}">
 		<div class="prod_div">
-			<a th:href="'/index/flowerdetail?flowerid='+${flower.flowerid}"><img th:src="@{'/picture/'+${flower.picturem}}" border="0"/>
+			<a th:href="'/playMoives?moiveID='+${flower.flowerid}"><img th:src="@{'/picture/'+${flower.picturem}}" border="0"/>
 			</a>
 
 				<div id="prod_name_div" th:text="${flower.fname}"></div>

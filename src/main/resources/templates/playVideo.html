@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <link href="/css/prodList.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery-1.4.2.js"></script>
+</head>
+<body>
+<center>
+    <div id="top" th:insert="top.html"/>
+    <div id="content">
+        <video width="990"  controls>
+            <source th:src="@{'/moives/'+${moiveID}+'.mp4'}" type="video/mp4">
+            </object>
+        </video>
+
+
+    </div>
+    </div>
+    <div id="bottom" th:insert="bottom.html"/>
+</center>
+</body>
+</html>
