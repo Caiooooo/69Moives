@@ -24,14 +24,42 @@ public class FlowerService  extends ServiceImpl<FlowerMapper, Flower> {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    public Map<String, Object> queryPage(String fname, String fclass, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize){
+//    public Map<String, Object> queryPage(String fname, String fclass, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize){
+//        QueryWrapper<Flower> queryWrapper = new QueryWrapper<>();
+//        if(!"".equals(fname) && fname !="")
+//            queryWrapper.like("fname", fname);
+//        if(!"".equals(fclass) && fclass != "")
+//            queryWrapper.eq("fclass", fclass);
+//        queryWrapper.between("yourprice", minprice, maxprice);
+//        queryWrapper.orderByDesc("sellednum");
+//        int count = flowerMapper.selectCount(queryWrapper).intValue();
+//        Page<Flower> page = new Page<Flower>(pageNo, pageSize);
+//        Page<Flower> flowerPage = flowerMapper.selectPage(page, queryWrapper);
+//
+//        Map<String , Object> map = new HashMap<>();
+//        map.put("count", count);
+//        map.put("recourds", page.getRecords());
+//        return map;
+//    }
+
+    public Map<String, Object> queryPage(String fname, String fclass, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize, String orderMethod){
         QueryWrapper<Flower> queryWrapper = new QueryWrapper<>();
         if(!"".equals(fname) && fname !="")
             queryWrapper.like("fname", fname);
+
+        //TODO: fclass指代电影类型，region指代地区，后续需要添加region
         if(!"".equals(fclass) && fclass != "")
             queryWrapper.eq("fclass", fclass);
+
         queryWrapper.between("yourprice", minprice, maxprice);
-        queryWrapper.orderByDesc("sellednum");
+
+        //TODO: 根据实际数据库进行更改
+        switch (orderMethod) { //热度排序
+            case "weekly": queryWrapper.orderByDesc("price"); break;
+            case "monthly": queryWrapper.orderByDesc("sellednum"); break;
+            default: queryWrapper.orderByDesc("price"); break;
+        }
+
         int count = flowerMapper.selectCount(queryWrapper).intValue();
         Page<Flower> page = new Page<Flower>(pageNo, pageSize);
         Page<Flower> flowerPage = flowerMapper.selectPage(page, queryWrapper);
