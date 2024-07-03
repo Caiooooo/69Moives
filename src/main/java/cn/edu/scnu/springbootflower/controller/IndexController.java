@@ -36,6 +36,7 @@ public class IndexController {
     public String index(@RequestParam(name = "pageNo", defaultValue = "1")Integer pageNo,
                         @RequestParam(name = "fname", defaultValue = "")String fname,
                         @RequestParam(name = "fclass", defaultValue = "")String fclass,
+                        @RequestParam(name = "region", defaultValue = "")String region,
                         @RequestParam(name = "orderMethod", defaultValue = "weekly")String orderMethod,
                         Integer minprice,
                         Integer maxprice,
@@ -47,7 +48,7 @@ public class IndexController {
         if (maxprice == null){
             maxprice = Integer.MAX_VALUE;
         }
-        Map<String, Object> map = flowerService.queryPage(fname,fclass,minprice,maxprice,pageNo, pageSize, orderMethod);
+        Map<String, Object> map = flowerService.queryPage(fname,fclass,region,minprice,maxprice,pageNo, pageSize, orderMethod);
         int totalRecords = (Integer)map.get("count");
         System.out.println(totalRecords);
         System.out.println("热度查询方式：" + orderMethod);
@@ -61,7 +62,6 @@ public class IndexController {
 // Extract the first 16 elements
         flowerlist = flowerlist.subList(startNum, endNum);
 
-
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("pageCount", pageCount);
         model.addAttribute("pageSize", pageSize);
@@ -71,6 +71,7 @@ public class IndexController {
         model.addAttribute("maxprice", maxprice);
         model.addAttribute("flowerlist", flowerlist);
         model.addAttribute("fclasses", flowerService.findfclass());
+        model.addAttribute("regions", flowerService.findregions());
         return "index";
     }
 

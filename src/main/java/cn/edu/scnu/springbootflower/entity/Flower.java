@@ -26,6 +26,15 @@ public class Flower {
     private String bzpicture;
     private String tejia;
     private Integer sellednum;
+    private String region;
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
     public String getFlowerid() {
         return flowerid;

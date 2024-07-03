@@ -24,40 +24,25 @@ public class FlowerService  extends ServiceImpl<FlowerMapper, Flower> {
     @Autowired
     private RedisTemplate redisTemplate;
 
-//    public Map<String, Object> queryPage(String fname, String fclass, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize){
-//        QueryWrapper<Flower> queryWrapper = new QueryWrapper<>();
-//        if(!"".equals(fname) && fname !="")
-//            queryWrapper.like("fname", fname);
-//        if(!"".equals(fclass) && fclass != "")
-//            queryWrapper.eq("fclass", fclass);
-//        queryWrapper.between("yourprice", minprice, maxprice);
-//        queryWrapper.orderByDesc("sellednum");
-//        int count = flowerMapper.selectCount(queryWrapper).intValue();
-//        Page<Flower> page = new Page<Flower>(pageNo, pageSize);
-//        Page<Flower> flowerPage = flowerMapper.selectPage(page, queryWrapper);
-//
-//        Map<String , Object> map = new HashMap<>();
-//        map.put("count", count);
-//        map.put("recourds", page.getRecords());
-//        return map;
-//    }
-
-    public Map<String, Object> queryPage(String fname, String fclass, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize, String orderMethod){
+    public Map<String, Object> queryPage(String fname, String fclass, String region, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize, String orderMethod){
         QueryWrapper<Flower> queryWrapper = new QueryWrapper<>();
         if(!"".equals(fname) && fname !="")
             queryWrapper.like("fname", fname);
 
-        //TODO: fclass指代电影类型，region指代地区，后续需要添加region
+        //fclass指代电影类型，region指代地区
         if(!"".equals(fclass) && fclass != "")
             queryWrapper.eq("fclass", fclass);
+        if(!"".equals(region) && region != "")
+            queryWrapper.eq("region", region);
 
         queryWrapper.between("yourprice", minprice, maxprice);
 
-        //TODO: 根据实际数据库进行更改
-        switch (orderMethod) { //热度排序
-            case "weekly": queryWrapper.orderByDesc("price"); break;
-            case "monthly": queryWrapper.orderByDesc("sellednum"); break;
-            default: queryWrapper.orderByDesc("price"); break;
+        //热度排序
+        switch (orderMethod) {
+            case "weekly": queryWrapper.orderByDesc("weekly_heat"); break;
+            case "monthly": queryWrapper.orderByDesc("monthly_heat"); break;
+            case "total": queryWrapper.orderByDesc("total_heat"); break;
+            case "positive": queryWrapper.orderByDesc("positive_reviews"); break;
         }
 
         int count = flowerMapper.selectCount(queryWrapper).intValue();
@@ -79,6 +64,16 @@ public class FlowerService  extends ServiceImpl<FlowerMapper, Flower> {
             redisTemplate.opsForValue().set("flower_" + flowerid, flower);
             return flower;
         }
+    }
+    public List<String> findregions() { //查找所有region类别
+        QueryWrapper<Flower> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("distinct region");
+        List<Flower> flowers = flowerMapper.selectList(queryWrapper);
+        List<String> regions = new ArrayList<>();
+        for (Flower flower: flowers) {
+            regions.add(flower.getRegion());
+        }
+        return regions;
     }
     public List<String> findfclass() {
         QueryWrapper<Flower> queryWrapper=new QueryWrapper<>();

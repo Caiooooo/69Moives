@@ -22,13 +22,12 @@
 					<option th:each="fclass:${fclasses}" th:value="${fclass}" th:text="${fclass}"></option>
 				</select>
 				地区：
-				<select name="order">
+				<select name="region">
 					<option value="">不限</option>
-					<option th:each="fclass:${fclasses}" th:value="${fclass}" th:text="${fclass}"></option>
+					<option th:each="region:${regions}" th:value="${region}" th:text="${region}"></option>
 				</select>
 				排行方式：
 				<select name="orderMethod">
-					<option value="">默认</option>
 					<option value="weekly">本周排行</option>
 					<option value="monthly">本月排行</option>
 					<option value="total">全部排行</option>
