@@ -1,96 +1,97 @@
-drop table flower;
+USE flower;
+DROP TABLE IF EXISTS flower;
 CREATE TABLE flower(
-	flowerid char(100),
-	fname varchar(120),
-	myclass char(20),
-	fclass char(20),
-	fclass1 char(20),
-	cailiao varchar(200),
-	baozhuang varchar(200),
-	huayu varchar(400),
-	shuoming varchar(200),
-	price int,
-	yourprice int,
-	pictures varchar(120),
-	picturem varchar(120),
-	pictureb varchar(120),
-	pictured varchar(11120),
-	cailiaopicture varchar(120),
-	bzpicture varchar(120),
-	tejia char(2),
-	sellednum int,
+	flowerid CHAR(100),
+	fname VARCHAR(120),
+	myclass CHAR(20),
+	fclass CHAR(20),
+	fclass1 CHAR(20),
+	cailiao VARCHAR(200),
+	baozhuang VARCHAR(200),
+	huayu VARCHAR(400),
+	shuoming VARCHAR(200),
+	price INT,
+	yourprice INT,
+	pictures VARCHAR(120),
+	picturem VARCHAR(120),
+	pictureb VARCHAR(120),
+	pictured VARCHAR(11120),
+	cailiaopicture VARCHAR(120),
+	bzpicture VARCHAR(120),
+	tejia CHAR(2),
+	sellednum INT,
 	monthly_heat INT,
 	weekly_heat INT,
 	total_heat INT,
 	positive_reviews INT,
 	director VARCHAR(255),
 	actors TEXT,
-    region VARCHAR(255),
-	vip (BOOLEAN),
-	PRIMARY KEY(flowerID) 
-)ENGINE=MyISAM DEFAULT CHARSET=utf8;
-delete from flower;
+	region VARCHAR(255),
+	vip BOOLEAN,
+	PRIMARY KEY(flowerID)
+)ENGINE=MYISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010746', '盗墓笔记', '鲜花', '动作片', '蓝色妖姬', '99枝蓝玫瑰（即蓝色妖姬，昆明产），外围一圈叶上花、 绿叶', '里层白色手揉纸，外层蓝色手揉纸圆形包装', '蓝色妖姬这个名字最早来自荷兰是一种加工花卉．它 是用一种对人体无害的染色剂和助染剂调合成着色剂，而 后衍变为蓝玫瑰的称谓，“蓝色妖姬”是近两年玫瑰中的 新贵,其花语代表“清纯的爱和敦厚善良”。', '请提前1天订购或订购前咨询客服', 1580, 1280, '9010746_s.jpg', '9010746_m.jpg', '9010746_b.jpg', '9010746_d.jpg', '', '', '是', 54, 1500, 1200, 1800, 160, '宁浩', '黄渤, 陈坤', '中国', true);
+('9010746', '盗墓笔记', '鲜花', '动作片', '蓝色妖姬', '99枝蓝玫瑰（即蓝色妖姬，昆明产），外围一圈叶上花、 绿叶', '里层白色手揉纸，外层蓝色手揉纸圆形包装', '蓝色妖姬这个名字最早来自荷兰是一种加工花卉．它 是用一种对人体无害的染色剂和助染剂调合成着色剂，而 后衍变为蓝玫瑰的称谓，“蓝色妖姬”是近两年玫瑰中的 新贵,其花语代表“清纯的爱和敦厚善良”。', '请提前1天订购或订购前咨询客服', 1580, 1280, '9010746_s.jpg', '9010746_m.jpg', '9010746_b.jpg', '9010746_d.jpg', '', '', '是', 54, 1500, 1200, 1800, 160, '宁浩', '黄渤, 陈坤', '中国', TRUE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010648', '老人与海', '鲜花', '冒险片', '蓝色妖姬', '19枝蓝色妖姬(昆明产)，每支玫瑰分别精包装，点缀洁白 的满天星和绿叶', ' 白色的纱网和蓝色手揉纸包装，配同色系丝带花', '相守是一种承诺，人世论回中，怎样才能拥有一份温 柔的情意！ 相遇是一种宿命，心灵的交汇让我们有诉不 尽的浪漫情怀...你是我最深的爱恋，希望永远铭记我们 这段美丽的爱情故事！ 蓝色妖姬这个名字最早来自荷兰是一种加工花卉．它 是用一种对人体无害的染色剂和助染剂调合成着色剂，而 后衍变为蓝玫瑰的称谓，“蓝色妖姬”是近两年玫瑰中的 新贵,其花语代表“清纯的爱和敦厚善良”。', '请提前1天订购或订购前咨询客服', 468, 385, '9010648_s.jpg', '9010648_m.jpg', '9010648_b.jpg', '9010648_d.jpg', '', '', '是', 42, 1200, 900, 1300, 110, '克里斯托弗·诺兰', '马修·麦康纳, 安妮·海瑟薇', '美国', true);
+('9010648', '老人与海', '鲜花', '冒险片', '蓝色妖姬', '19枝蓝色妖姬(昆明产)，每支玫瑰分别精包装，点缀洁白 的满天星和绿叶', ' 白色的纱网和蓝色手揉纸包装，配同色系丝带花', '相守是一种承诺，人世论回中，怎样才能拥有一份温 柔的情意！ 相遇是一种宿命，心灵的交汇让我们有诉不 尽的浪漫情怀...你是我最深的爱恋，希望永远铭记我们 这段美丽的爱情故事！ 蓝色妖姬这个名字最早来自荷兰是一种加工花卉．它 是用一种对人体无害的染色剂和助染剂调合成着色剂，而 后衍变为蓝玫瑰的称谓，“蓝色妖姬”是近两年玫瑰中的 新贵,其花语代表“清纯的爱和敦厚善良”。', '请提前1天订购或订购前咨询客服', 468, 385, '9010648_s.jpg', '9010648_m.jpg', '9010648_b.jpg', '9010648_d.jpg', '', '', '是', 42, 1200, 900, 1300, 110, '克里斯托弗·诺兰', '马修·麦康纳, 安妮·海瑟薇', '美国', TRUE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010650', '我的前生', '鲜花', '冒险片', '蓝色妖姬', '枝蓝色妖姬（昆明产），配叶', '内衬白色棉纸，外层蓝色(或紫色)皱纹纸扇形包装，同色花结', '“蓝色妖姬”相知是一种宿命，心灵的交汇让我们有诉不尽的浪漫情怀；相守是一种承诺，人世轮回中，永远 铭记我们这段美丽的爱情故事！', '请提前1天订购或订购前咨询客服', 303, 208, '9010650_s.jpg', '9010650_m.jpg', '9010650_b.jpg', '9010650_d.jpg', '', '', '是', 31, 600, 500, 800, 70, '克林特·伊斯特伍德', '布拉德·皮特, 安吉丽娜·朱莉', '美国', false);
+('9010650', '我的前生', '鲜花', '冒险片', '蓝色妖姬', '枝蓝色妖姬（昆明产），配叶', '内衬白色棉纸，外层蓝色(或紫色)皱纹纸扇形包装，同色花结', '“蓝色妖姬”相知是一种宿命，心灵的交汇让我们有诉不尽的浪漫情怀；相守是一种承诺，人世轮回中，永远 铭记我们这段美丽的爱情故事！', '请提前1天订购或订购前咨询客服', 303, 208, '9010650_s.jpg', '9010650_m.jpg', '9010650_b.jpg', '9010650_d.jpg', '', '', '是', 31, 600, 500, 800, 70, '克林特·伊斯特伍德', '布拉德·皮特, 安吉丽娜·朱莉', '美国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010712', '从前有座浪浪山', '鲜花', '武侠片', '玫瑰', '16枝白玫瑰，外围一圈紫色勿忘我', '圆形花束：内层白色手揉纸、外面紫色皱纹纸双层围绕，紫色花结', '人生中，相遇最美。当一颗心与另一颗心，相遇相吸，便是最珍贵的一份情缘。而后，便有了思念。美丽的心情，秋叶飞扬的季节，好想告诉你：你，是我生命中最美丽的相遇！', '畅销TOP10商品，限时优惠促销中 ', 202, 178, '9010712_s.jpg', '9010712_m.jpg', '9010712_b.jpg', '9010712_d.jpg', '201012151750232313937.jpg', '', '否', 26, 500, 400, 600, 50, '张艺谋', '章子怡, 周润发', '中国', false);
+('9010712', '从前有座浪浪山', '鲜花', '武侠片', '玫瑰', '16枝白玫瑰，外围一圈紫色勿忘我', '圆形花束：内层白色手揉纸、外面紫色皱纹纸双层围绕，紫色花结', '人生中，相遇最美。当一颗心与另一颗心，相遇相吸，便是最珍贵的一份情缘。而后，便有了思念。美丽的心情，秋叶飞扬的季节，好想告诉你：你，是我生命中最美丽的相遇！', '畅销TOP10商品，限时优惠促销中 ', 202, 178, '9010712_s.jpg', '9010712_m.jpg', '9010712_b.jpg', '9010712_d.jpg', '201012151750232313937.jpg', '', '否', 26, 500, 400, 600, 50, '张艺谋', '章子怡, 周润发', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010201', '至暗时刻', '鲜花', '动作片', '郁金香', '紫色郁金香10枝，配桔梗、绿叶', '内层透明玻璃纸，外层浅兰色棉纸，浅紫色网纱包裹，扇形包装', '高雅的紫色郁金香，一见就让人迷恋，爱不释手，就象 我当初遇见了你！', '因郁金香花期的原因，只在12月20日～4月10日期间提供此款鲜花的配送，并请尽量提前三天订购或订购前咨询。', 229, 206, '9010201_s.jpg', '9010201_m.jpg', '9010201_b.jpg', '9010201_d.jpg', '', '', '是', 25, 400, 300, 500, 40, '克里斯托弗·诺兰', '杰克·尼科尔森, 马特·达蒙', '美国', true);
+('9010201', '至暗时刻', '鲜花', '动作片', '郁金香', '紫色郁金香10枝，配桔梗、绿叶', '内层透明玻璃纸，外层浅兰色棉纸，浅紫色网纱包裹，扇形包装', '高雅的紫色郁金香，一见就让人迷恋，爱不释手，就象 我当初遇见了你！', '因郁金香花期的原因，只在12月20日～4月10日期间提供此款鲜花的配送，并请尽量提前三天订购或订购前咨询。', 229, 206, '9010201_s.jpg', '9010201_m.jpg', '9010201_b.jpg', '9010201_d.jpg', '', '', '是', 25, 400, 300, 500, 40, '克里斯托弗·诺兰', '杰克·尼科尔森, 马特·达蒙', '美国', TRUE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010094', '风声', '鲜花', '动作片', '马蹄莲', '白色马蹄莲12枝，叶上黄金搭配', '网纱内衬，淡棕色棉纸扇形包装，绿色蝴蝶结束扎', '马蹄莲只提供12月至次年5月订购，并请提前三天订购。', '月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。', 166, 149, '9010094_s.jpg', '9010094_m.jpg', '9010094_b.jpg', '9010094_d.jpg', '', '', '否', 21, 300, 250, 350, 30, '冯小刚', '张国荣, 张曼玉', '中国', false);
+('9010094', '风声', '鲜花', '动作片', '马蹄莲', '白色马蹄莲12枝，叶上黄金搭配', '网纱内衬，淡棕色棉纸扇形包装，绿色蝴蝶结束扎', '马蹄莲只提供12月至次年5月订购，并请提前三天订购。', '月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。', 166, 149, '9010094_s.jpg', '9010094_m.jpg', '9010094_b.jpg', '9010094_d.jpg', '', '', '否', 21, 300, 250, 350, 30, '冯小刚', '张国荣, 张曼玉', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010200', '速度与激情', '鲜花', '动作片', '郁金香', '双色郁金香20枝（粉/桔/黄/红，挑选2种颜色搭配，依实 际进货确定）', '内层：浅黄色皱纹纸，外层：乳白色皱纹纸，红、金双色丝带束扎', '郁（遇）见了你，让我生活变得更美丽；而我对你的爱， 也郁（愈）来郁（愈）深！', '因郁金香花期的原因，只在12月20日～4月10日期间提供此款鲜花的配送，并请尽量提前三天订购或订购前咨询。', 376, 338, '9010200_s.jpg', '9010200_m.jpg', '9010200_b.jpg', '9010200_d.jpg', '', '', '是', 21, 800, 700, 900, 80, '詹姆斯·卡梅隆', '范·迪塞尔, 保罗·沃克', '美国', true);
+('9010200', '速度与激情', '鲜花', '动作片', '郁金香', '双色郁金香20枝（粉/桔/黄/红，挑选2种颜色搭配，依实 际进货确定）', '内层：浅黄色皱纹纸，外层：乳白色皱纹纸，红、金双色丝带束扎', '郁（遇）见了你，让我生活变得更美丽；而我对你的爱， 也郁（愈）来郁（愈）深！', '因郁金香花期的原因，只在12月20日～4月10日期间提供此款鲜花的配送，并请尽量提前三天订购或订购前咨询。', 376, 338, '9010200_s.jpg', '9010200_m.jpg', '9010200_b.jpg', '9010200_d.jpg', '', '', '是', 21, 800, 700, 900, 80, '詹姆斯·卡梅隆', '范·迪塞尔, 保罗·沃克', '美国', TRUE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010731','脆弱的男人','鲜花','动作片','玫瑰','19枝顶级红玫瑰(长柄)紧密居中，外围满天星丰满环绕','白色棉纸内衬，浅粉色卷边纸圆形包装，枚红色花结','19枝红玫瑰寓意：永远爱你此情不渝。想念那条街,想念与你遇见的地方,想念和你的第一次牵手……永远无法忘记这些往昔的喜悦,它将永驻心间！','年度销量TOP10商品，优惠促销中 ',210,178,'9010731_s.jpg','9010731_m.jpg','9010731_b.jpg','9010731_d.jpg','2011481943185552432.jpg','','否',19, 700, 600, 800, 70, '张艺谋', '巩俐, 甄子丹', '中国', false);
+('9010731','脆弱的男人','鲜花','动作片','玫瑰','19枝顶级红玫瑰(长柄)紧密居中，外围满天星丰满环绕','白色棉纸内衬，浅粉色卷边纸圆形包装，枚红色花结','19枝红玫瑰寓意：永远爱你此情不渝。想念那条街,想念与你遇见的地方,想念和你的第一次牵手……永远无法忘记这些往昔的喜悦,它将永驻心间！','年度销量TOP10商品，优惠促销中 ',210,178,'9010731_s.jpg','9010731_m.jpg','9010731_b.jpg','9010731_d.jpg','2011481943185552432.jpg','','否',19, 700, 600, 800, 70, '张艺谋', '巩俐, 甄子丹', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010783','心动大开','鲜花','动作片','婚庆鲜花','玫瑰','50枝粉玫瑰，黄莺围绕一圈','浅粉色礼品纸呈圆形包装，再围一圈粉色网纱,紫色+红色丝带束扎','50枝玫瑰寓意无怨无悔.','2011年新品上市,优惠发售中 ',468,398,'9010783_s.jpg','9010783_m.jpg','9010783_b.jpg','9010783_d.jpg','2011481153292985888.jpg','2011481153467533679.jpg','否',17, 800, 600, 1000, 85, '宁浩', '黄渤, 沈腾', '中国', false);
+('9010783','心动大开','鲜花','动作片','婚庆鲜花','玫瑰','50枝粉玫瑰，黄莺围绕一圈','浅粉色礼品纸呈圆形包装，再围一圈粉色网纱,紫色+红色丝带束扎','50枝玫瑰寓意无怨无悔.','2011年新品上市,优惠发售中 ',468,398,'9010783_s.jpg','9010783_m.jpg','9010783_b.jpg','9010783_d.jpg','2011481153292985888.jpg','2011481153467533679.jpg','否',17, 800, 600, 1000, 85, '宁浩', '黄渤, 沈腾', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010791','影','鲜花','动作片','友情鲜花','马蹄莲','5枝白色马蹄莲,9枝香槟玫瑰,剑叶+绿叶适量','香槟色手揉纸一张垫底,浅黄绿色手揉纸+白色手揉纸呈扇形包装,金黄色条纹丝带束扎','简单、时尚而典雅的包装，犹如赏心悦目的你一般。 犹如赏心悦目的你一般。 白色马蹄莲清雅美丽, 它的花语是"忠贞不渝,永结同心"; 香槟玫瑰代表美丽的青春and我只钟情你一个。','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',198,179,'2011421852472310.jpg','2011421853555555.jpg','2011421854060516.jpg','20114218757373691.jpg','201147163327821246.jpg','201147163536095294.jpg','是',16, 600, 500, 800, 60, '贾樟柯', '赵涛, 张震', '中国', true);
+('9010791','影','鲜花','动作片','友情鲜花','马蹄莲','5枝白色马蹄莲,9枝香槟玫瑰,剑叶+绿叶适量','香槟色手揉纸一张垫底,浅黄绿色手揉纸+白色手揉纸呈扇形包装,金黄色条纹丝带束扎','简单、时尚而典雅的包装，犹如赏心悦目的你一般。 犹如赏心悦目的你一般。 白色马蹄莲清雅美丽, 它的花语是"忠贞不渝,永结同心"; 香槟玫瑰代表美丽的青春and我只钟情你一个。','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',198,179,'2011421852472310.jpg','2011421853555555.jpg','2011421854060516.jpg','20114218757373691.jpg','201147163327821246.jpg','201147163536095294.jpg','是',16, 600, 500, 800, 60, '贾樟柯', '赵涛, 张震', '中国', TRUE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010745','DJANGO','鲜花','动作片','家居鲜花','马蹄莲','9枝白色马蹄莲，精致花瓶插花','精美玻璃花瓶（花瓶式样供参考，以当地出货为准）','愿清风弹夕相拥，风姿千万种......','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',170,150,'9010745_s.jpg','9010745_m.jpg','9010745_b.jpg','9010745_d.jpg','','','否',12, 500, 400, 700, 50, '昆汀·塔伦蒂诺', '杰米·福克斯, 莱昂纳多·迪卡普里奥', '美国', false);
+('9010745','DJANGO','鲜花','动作片','家居鲜花','马蹄莲','9枝白色马蹄莲，精致花瓶插花','精美玻璃花瓶（花瓶式样供参考，以当地出货为准）','愿清风弹夕相拥，风姿千万种......','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',170,150,'9010745_s.jpg','9010745_m.jpg','9010745_b.jpg','9010745_d.jpg','','','否',12, 500, 400, 700, 50, '昆汀·塔伦蒂诺', '杰米·福克斯, 莱昂纳多·迪卡普里奥', '美国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010785','传说','鲜花','动作片','生日鲜花','玫瑰','11枝红玫瑰，9枝白玫瑰，适量绿叶','白底金色花纹纸,红色手揉纸呈扇形包装，细网纱托底,红色丝带束扎','11朵红玫与白玫交错排列，时而热情如火，时而高贵典','2010年圣诞节新品上市,优惠发售中 ',240,202,'','9010785_m.jpg','9010785_b.jpg','9010785_d.jpg','20114819344790716.jpg','','否',12, 500, 400, 700, 55, '陈凯歌', '章子怡, 周润发', '中国', false);
+('9010785','传说','鲜花','动作片','生日鲜花','玫瑰','11枝红玫瑰，9枝白玫瑰，适量绿叶','白底金色花纹纸,红色手揉纸呈扇形包装，细网纱托底,红色丝带束扎','11朵红玫与白玫交错排列，时而热情如火，时而高贵典','2010年圣诞节新品上市,优惠发售中 ',240,202,'','9010785_m.jpg','9010785_b.jpg','9010785_d.jpg','20114819344790716.jpg','','否',12, 500, 400, 700, 55, '陈凯歌', '章子怡, 周润发', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010820','心动的秘密','鲜花','动作片','爱情鲜花 ','玫瑰','16枝香槟玫瑰，2枝白香水百合,适量红色小康乃馨周边搭配,适量黄莺。','香槟色手揉纸呈扇形包装，草绿色手揉纸+香槟色手揉纸围裹，浅黄色丝带花结','想着你,空气里满是花的蜜香,','NULL2011七夕节特别设计，新款上市 ',256,229,'201171919114269420.jpg','201171919115048483.jpg','20117191912275859.jpg','20117191912296065082.jpg','20117191918344781054.jpg','','否',11, 300, 200, 400, 35, '张艺谋', '章子怡, 张震', '中国', false);
+('9010820','心动的秘密','鲜花','动作片','爱情鲜花 ','玫瑰','16枝香槟玫瑰，2枝白香水百合,适量红色小康乃馨周边搭配,适量黄莺。','香槟色手揉纸呈扇形包装，草绿色手揉纸+香槟色手揉纸围裹，浅黄色丝带花结','想着你,空气里满是花的蜜香,','NULL2011七夕节特别设计，新款上市 ',256,229,'201171919114269420.jpg','201171919115048483.jpg','20117191912275859.jpg','20117191912296065082.jpg','20117191918344781054.jpg','','否',11, 300, 200, 400, 35, '张艺谋', '章子怡, 张震', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010827','大圣归来','鲜花','动画片','爱情鲜花','玫瑰','33枝粉玫瑰居中，66枝红玫瑰围绕，外层适量黄莺围绕','浅粉色珠光纱围绕花束一圈，香槟色手揉纸圆形包装，深咖啡色花结','99枝玫瑰，寓意爱情长长久久，完美的爱！','2011年新品上市，特价促销，原购买价586元，直降100元 ',680,486,'201192118181758568.jpg','201192118222044554.jpg','201192118222044554.jpg','201192118182864056.jpg','2011921181922751468.jpg','','否',10, 900, 700, 1200, 95, '田艺昕', '吴京, 姚晨', '中国', false);
+('9010827','大圣归来','鲜花','动画片','爱情鲜花','玫瑰','33枝粉玫瑰居中，66枝红玫瑰围绕，外层适量黄莺围绕','浅粉色珠光纱围绕花束一圈，香槟色手揉纸圆形包装，深咖啡色花结','99枝玫瑰，寓意爱情长长久久，完美的爱！','2011年新品上市，特价促销，原购买价586元，直降100元 ',680,486,'201192118181758568.jpg','201192118222044554.jpg','201192118222044554.jpg','201192118182864056.jpg','2011921181922751468.jpg','','否',10, 900, 700, 1200, 95, '田艺昕', '吴京, 姚晨', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010788','唐人街探案','鲜花','喜剧片','婚庆鲜花 ','玫瑰','16枝粉玫瑰，5寸小熊2只,适量绿叶','粉色瓦楞纸垫底，香槟色礼品纸/浅黄色手揉纸/粉色手揉纸各一张呈扇形包装，细网纱围绕一圈，粉+银丝带束扎 ','温情的粉玫瑰,一对幸福的小熊,寓意相亲相爱,永不分离!','2011年新品上市,优惠发售中 ',216,192,'9010788_s.jpg','9010788_m.jpg','9010788_b.jpg','9010788_d.jpg','201012291856315306201.jpg','','否',8, 700, 600, 900, 75, '陈思诚', '王宝强, 刘昊然', '中国', false);
+('9010788','唐人街探案','鲜花','喜剧片','婚庆鲜花 ','玫瑰','16枝粉玫瑰，5寸小熊2只,适量绿叶','粉色瓦楞纸垫底，香槟色礼品纸/浅黄色手揉纸/粉色手揉纸各一张呈扇形包装，细网纱围绕一圈，粉+银丝带束扎 ','温情的粉玫瑰,一对幸福的小熊,寓意相亲相爱,永不分离!','2011年新品上市,优惠发售中 ',216,192,'9010788_s.jpg','9010788_m.jpg','9010788_b.jpg','9010788_d.jpg','201012291856315306201.jpg','','否',8, 700, 600, 900, 75, '陈思诚', '王宝强, 刘昊然', '中国', FALSE);
 
+DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -99,7 +100,3 @@ CREATE TABLE Users (
 
 INSERT INTO Users (username, is_vip) 
 VALUES ('Alice', TRUE), ('Bob', FALSE), ('Charlie', TRUE), ('Diana', FALSE), ('Edward', TRUE), ('Fiona', FALSE), ('George', TRUE);
-
-
-
-
