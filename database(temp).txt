@@ -65,31 +65,31 @@ VALUES
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010783','心动大开','鲜花','动作片','婚庆鲜花','玫瑰','50枝粉玫瑰，黄莺围绕一圈','浅粉色礼品纸呈圆形包装，再围一圈粉色网纱,紫色+红色丝带束扎','50枝玫瑰寓意无怨无悔.','2011年新品上市,优惠发售中 ',468,398,'9010783_s.jpg','9010783_m.jpg','9010783_b.jpg','9010783_d.jpg','2011481153292985888.jpg','2011481153467533679.jpg','否',17, 800, 600, 1000, 85, '宁浩', '黄渤, 沈腾', '中国', FALSE);
+('9010783','心动大开','鲜花','动作片','玫瑰','50枝粉玫瑰，黄莺围绕一圈','浅粉色礼品纸呈圆形包装，再围一圈粉色网纱,紫色+红色丝带束扎','50枝玫瑰寓意无怨无悔.','2011年新品上市,优惠发售中 ',468,398,'9010783_s.jpg','9010783_m.jpg','9010783_b.jpg','9010783_d.jpg','2011481153292985888.jpg','2011481153467533679.jpg','否',17, 800, 600, 1000, 85, '宁浩', '黄渤, 沈腾', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010791','影','鲜花','动作片','友情鲜花','马蹄莲','5枝白色马蹄莲,9枝香槟玫瑰,剑叶+绿叶适量','香槟色手揉纸一张垫底,浅黄绿色手揉纸+白色手揉纸呈扇形包装,金黄色条纹丝带束扎','简单、时尚而典雅的包装，犹如赏心悦目的你一般。 犹如赏心悦目的你一般。 白色马蹄莲清雅美丽, 它的花语是"忠贞不渝,永结同心"; 香槟玫瑰代表美丽的青春and我只钟情你一个。','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',198,179,'2011421852472310.jpg','2011421853555555.jpg','2011421854060516.jpg','20114218757373691.jpg','201147163327821246.jpg','201147163536095294.jpg','是',16, 600, 500, 800, 60, '贾樟柯', '赵涛, 张震', '中国', TRUE);
+('9010791','影','鲜花','动作片','马蹄莲','5枝白色马蹄莲,9枝香槟玫瑰,剑叶+绿叶适量','香槟色手揉纸一张垫底,浅黄绿色手揉纸+白色手揉纸呈扇形包装,金黄色条纹丝带束扎','简单、时尚而典雅的包装，犹如赏心悦目的你一般。 犹如赏心悦目的你一般。 白色马蹄莲清雅美丽, 它的花语是"忠贞不渝,永结同心"; 香槟玫瑰代表美丽的青春and我只钟情你一个。','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',198,179,'2011421852472310.jpg','2011421853555555.jpg','2011421854060516.jpg','20114218757373691.jpg','201147163327821246.jpg','201147163536095294.jpg','是',16, 600, 500, 800, 60, '贾樟柯', '赵涛, 张震', '中国', TRUE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010745','DJANGO','鲜花','动作片','家居鲜花','马蹄莲','9枝白色马蹄莲，精致花瓶插花','精美玻璃花瓶（花瓶式样供参考，以当地出货为准）','愿清风弹夕相拥，风姿千万种......','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',170,150,'9010745_s.jpg','9010745_m.jpg','9010745_b.jpg','9010745_d.jpg','','','否',12, 500, 400, 700, 50, '昆汀·塔伦蒂诺', '杰米·福克斯, 莱昂纳多·迪卡普里奥', '美国', FALSE);
+('9010745','DJANGO','鲜花','动作片','马蹄莲','9枝白色马蹄莲，精致花瓶插花','精美玻璃花瓶（花瓶式样供参考，以当地出货为准）','愿清风弹夕相拥，风姿千万种......','3月特价优惠！马蹄莲只提供12月至次年5月订购(其他月份请订前咨询是否有货)，限送全国大中城市,并请提前一天订购。',170,150,'9010745_s.jpg','9010745_m.jpg','9010745_b.jpg','9010745_d.jpg','','','否',12, 500, 400, 700, 50, '昆汀·塔伦蒂诺', '杰米·福克斯, 莱昂纳多·迪卡普里奥', '美国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010785','传说','鲜花','动作片','生日鲜花','玫瑰','11枝红玫瑰，9枝白玫瑰，适量绿叶','白底金色花纹纸,红色手揉纸呈扇形包装，细网纱托底,红色丝带束扎','11朵红玫与白玫交错排列，时而热情如火，时而高贵典','2010年圣诞节新品上市,优惠发售中 ',240,202,'','9010785_m.jpg','9010785_b.jpg','9010785_d.jpg','20114819344790716.jpg','','否',12, 500, 400, 700, 55, '陈凯歌', '章子怡, 周润发', '中国', FALSE);
+('9010785','传说','鲜花','动作片','玫瑰','11枝红玫瑰，9枝白玫瑰，适量绿叶','白底金色花纹纸,红色手揉纸呈扇形包装，细网纱托底,红色丝带束扎','11朵红玫与白玫交错排列，时而热情如火，时而高贵典','2010年圣诞节新品上市,优惠发售中 ',240,202,'','9010785_m.jpg','9010785_b.jpg','9010785_d.jpg','20114819344790716.jpg','','否',12, 500, 400, 700, 55, '陈凯歌', '章子怡, 周润发', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010820','心动的秘密','鲜花','动作片','爱情鲜花 ','玫瑰','16枝香槟玫瑰，2枝白香水百合,适量红色小康乃馨周边搭配,适量黄莺。','香槟色手揉纸呈扇形包装，草绿色手揉纸+香槟色手揉纸围裹，浅黄色丝带花结','想着你,空气里满是花的蜜香,','NULL2011七夕节特别设计，新款上市 ',256,229,'201171919114269420.jpg','201171919115048483.jpg','20117191912275859.jpg','20117191912296065082.jpg','20117191918344781054.jpg','','否',11, 300, 200, 400, 35, '张艺谋', '章子怡, 张震', '中国', FALSE);
+('9010820','心动的秘密','鲜花','动作片','玫瑰','16枝香槟玫瑰，2枝白香水百合,适量红色小康乃馨周边搭配,适量黄莺。','香槟色手揉纸呈扇形包装，草绿色手揉纸+香槟色手揉纸围裹，浅黄色丝带花结','想着你,空气里满是花的蜜香,','NULL2011七夕节特别设计，新款上市 ',256,229,'201171919114269420.jpg','201171919115048483.jpg','20117191912275859.jpg','20117191912296065082.jpg','20117191918344781054.jpg','','否',11, 300, 200, 400, 35, '张艺谋', '章子怡, 张震', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010827','大圣归来','鲜花','动画片','爱情鲜花','玫瑰','33枝粉玫瑰居中，66枝红玫瑰围绕，外层适量黄莺围绕','浅粉色珠光纱围绕花束一圈，香槟色手揉纸圆形包装，深咖啡色花结','99枝玫瑰，寓意爱情长长久久，完美的爱！','2011年新品上市，特价促销，原购买价586元，直降100元 ',680,486,'201192118181758568.jpg','201192118222044554.jpg','201192118222044554.jpg','201192118182864056.jpg','2011921181922751468.jpg','','否',10, 900, 700, 1200, 95, '田艺昕', '吴京, 姚晨', '中国', FALSE);
+('9010827','大圣归来','鲜花','动画片','玫瑰','33枝粉玫瑰居中，66枝红玫瑰围绕，外层适量黄莺围绕','浅粉色珠光纱围绕花束一圈，香槟色手揉纸圆形包装，深咖啡色花结','99枝玫瑰，寓意爱情长长久久，完美的爱！','2011年新品上市，特价促销，原购买价586元，直降100元 ',680,486,'201192118181758568.jpg','201192118222044554.jpg','201192118222044554.jpg','201192118182864056.jpg','2011921181922751468.jpg','','否',10, 900, 700, 1200, 95, '田艺昕', '吴京, 姚晨', '中国', FALSE);
 
 INSERT INTO flower (flowerid, fname, myclass, fclass, fclass1, cailiao, baozhuang, huayu, shuoming, price, yourprice, pictures, picturem, pictureb, pictured, cailiaopicture, bzpicture, tejia, sellednum, monthly_heat, weekly_heat, total_heat, positive_reviews, director, actors, region, vip)
 VALUES
-('9010788','唐人街探案','鲜花','喜剧片','婚庆鲜花 ','玫瑰','16枝粉玫瑰，5寸小熊2只,适量绿叶','粉色瓦楞纸垫底，香槟色礼品纸/浅黄色手揉纸/粉色手揉纸各一张呈扇形包装，细网纱围绕一圈，粉+银丝带束扎 ','温情的粉玫瑰,一对幸福的小熊,寓意相亲相爱,永不分离!','2011年新品上市,优惠发售中 ',216,192,'9010788_s.jpg','9010788_m.jpg','9010788_b.jpg','9010788_d.jpg','201012291856315306201.jpg','','否',8, 700, 600, 900, 75, '陈思诚', '王宝强, 刘昊然', '中国', FALSE);
+('9010788','唐人街探案','鲜花','喜剧片','玫瑰','16枝粉玫瑰，5寸小熊2只,适量绿叶','粉色瓦楞纸垫底，香槟色礼品纸/浅黄色手揉纸/粉色手揉纸各一张呈扇形包装，细网纱围绕一圈，粉+银丝带束扎 ','温情的粉玫瑰,一对幸福的小熊,寓意相亲相爱,永不分离!','2011年新品上市,优惠发售中 ',216,192,'9010788_s.jpg','9010788_m.jpg','9010788_b.jpg','9010788_d.jpg','201012291856315306201.jpg','','否',8, 700, 600, 900, 75, '陈思诚', '王宝强, 刘昊然', '中国', FALSE);
 
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
