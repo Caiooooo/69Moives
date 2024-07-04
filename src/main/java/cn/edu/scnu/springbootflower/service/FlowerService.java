@@ -24,10 +24,14 @@ public class FlowerService  extends ServiceImpl<FlowerMapper, Flower> {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    public Map<String, Object> queryPage(String fname, String fclass, String region, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize, String orderMethod){
+    public Map<String, Object> queryPage(String fname, String fclass, String region, Integer minprice, Integer maxprice, Integer pageNo, Integer pageSize, String orderMethod, String actors, String director){
         QueryWrapper<Flower> queryWrapper = new QueryWrapper<>();
         if(!"".equals(fname) && fname !="")
             queryWrapper.like("fname", fname);
+        if(!"".equals(actors) && fname !="")
+            queryWrapper.like("actors", actors);
+        if(!"".equals(director) && fname !="")
+            queryWrapper.like("director", director);
 
         //fclass指代电影类型，region指代地区
         if(!"".equals(fclass) && fclass != "")

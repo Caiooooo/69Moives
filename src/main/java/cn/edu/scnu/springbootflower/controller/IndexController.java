@@ -35,20 +35,22 @@ public class IndexController {
     @RequestMapping("/index")
     public String index(@RequestParam(name = "pageNo", defaultValue = "1")Integer pageNo,
                         @RequestParam(name = "fname", defaultValue = "")String fname,
+                        @RequestParam(name = "actors", defaultValue = "")String actors,
+                        @RequestParam(name = "director", defaultValue = "")String director,
                         @RequestParam(name = "fclass", defaultValue = "")String fclass,
                         @RequestParam(name = "region", defaultValue = "")String region,
                         @RequestParam(name = "orderMethod", defaultValue = "weekly")String orderMethod,
                         Integer minprice,
                         Integer maxprice,
                         Model model) {
-        Integer pageSize = 16;
+        Integer pageSize = 12;
         if (minprice == null) {
             minprice = 0;
         }
         if (maxprice == null){
             maxprice = Integer.MAX_VALUE;
         }
-        Map<String, Object> map = flowerService.queryPage(fname,fclass,region,minprice,maxprice,pageNo, pageSize, orderMethod);
+        Map<String, Object> map = flowerService.queryPage(fname,fclass,region,minprice,maxprice,pageNo, pageSize, orderMethod,actors,director);
         int totalRecords = (Integer)map.get("count");
         System.out.println(totalRecords);
         System.out.println("热度查询方式：" + orderMethod);

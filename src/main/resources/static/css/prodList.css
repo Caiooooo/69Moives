@@ -29,6 +29,18 @@ body{
 #content #search_div input[name=minprice],#content #search_div input[name=maxprice]{
 	width:60px;;
 }
+#content #search_div input[name=fname],#content #search_div input[name=maxprice]{
+	width:60px;;
+}
+
+#content #search_div input[name=actors],#content #search_div input[name=maxprice]{
+	width:60px;;
+}
+
+#content #search_div input[name=director],#content #search_div input[name=maxprice]{
+	width:60px;;
+}
+
 
 #content #search_div input[type=submit]{
 	border-style:none;
