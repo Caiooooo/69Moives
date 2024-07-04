@@ -100,3 +100,6 @@ CREATE TABLE Users (
 
 INSERT INTO Users (username, is_vip) 
 VALUES ('Alice', TRUE), ('Bob', FALSE), ('Charlie', TRUE), ('Diana', FALSE), ('Edward', TRUE), ('Fiona', FALSE), ('George', TRUE);
+
+ALTER TABLE tb_member
+ADD COLUMN isvip INT DEFAULT 0;

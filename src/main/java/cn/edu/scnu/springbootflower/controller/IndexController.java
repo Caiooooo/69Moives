@@ -92,7 +92,7 @@ public class IndexController {
     @ResponseBody
     public String doLogin(String email, String password, HttpSession session){
         TbMember member = memberService.login(email, password);
-        member.setPassword("");
+//        member.setPassword("");
         if(member != null){
             session.setAttribute("memberLogin", member);
             return "登录成功!";

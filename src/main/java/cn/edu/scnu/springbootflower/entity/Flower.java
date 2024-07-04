@@ -28,6 +28,16 @@ public class Flower {
     private Integer sellednum;
     private String region;
 
+    public int getVip() {
+        return vip;
+    }
+
+    public void setVip(int vip) {
+        this.vip = vip;
+    }
+
+    private int vip;
+
     public String getRegion() {
         return region;
     }

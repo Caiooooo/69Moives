@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <link href="/css/prodList.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="/js/bevip_ajax.js"></script>
+</head>
+<body>
+<div id="top" th:insert="top.html"/>
+<!--<form>-->
+<div style="width: 200px; margin: 0 auto;">
+<h1>请购买VIP 会员</h1>
+<!--    <form action="/buyVip" method="post">-->
+<!--        &lt;!&ndash; 注意这里的name属性"email"必须与控制器方法参数名一致 &ndash;&gt;-->
+<!--        <input type="text" name="email" placeholder="请输入您的邮箱"><br>-->
+<!--        <a href="/buyVip" style="font-size:x-small;text-decoration:none;color:midnightblue">为该账号购买vip</a>&nbsp;</span>-->
+<!--&lt;!&ndash;        <input type="submit" name="beVip" value="为该账号购买vip">&ndash;&gt;-->
+<!--    </form>-->
+    <form>
+    <table>
+        <tr>
+            <td class="tdx">Email：</td>
+            <td><input type="text" id="email" name="email" placeholder="请输入您的邮箱"/>
+                <span style="color:red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="s"  value="购买VIP"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span id = "form_msg" style="color:red"></span>
+            </td>
+        </tr>
+    </table>
+</form>
+    </div>
+
+
+<div style="width: 200px; margin: 0 auto;" id="bottom" th:insert="bottom.html"/>
+</body>
+</html>

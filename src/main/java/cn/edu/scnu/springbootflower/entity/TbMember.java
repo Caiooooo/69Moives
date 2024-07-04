@@ -18,4 +18,5 @@ public class TbMember implements Serializable {
     private String address;
     private int jifen;
     private double ye;
+    private int isvip;
 }

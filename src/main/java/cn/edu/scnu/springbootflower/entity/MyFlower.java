@@ -20,6 +20,17 @@ public class MyFlower {
     private MultipartFile cailiaopicture;
     private MultipartFile bzpicture;
     private String tejia;
+
+    public String getVip() {
+        return vip;
+    }
+
+    public void setVip(String vip) {
+        this.vip = vip;
+    }
+
+    private String vip;
+
     //自动生成getter和setter
 
     public String getFname() {

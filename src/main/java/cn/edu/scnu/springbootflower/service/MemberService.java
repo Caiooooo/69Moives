@@ -24,4 +24,9 @@ public class MemberService extends ServiceImpl<MemberMapper, TbMember> {
         else
             return null;
     }
+    public void updateVip(String email, int is_vip){
+        TbMember member = memberMapper.selectById(email);
+        member.setIsvip(is_vip);
+        memberMapper.updateById(member);
+    }
 }
