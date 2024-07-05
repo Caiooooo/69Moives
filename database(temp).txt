@@ -103,3 +103,10 @@ VALUES ('Alice', TRUE), ('Bob', FALSE), ('Charlie', TRUE), ('Diana', FALSE), ('E
 
 ALTER TABLE tb_member
 ADD COLUMN isvip INT DEFAULT 0;
+
+DROP TABLE IF EXISTS Alipayorder;
+CREATE TABLE Alipayorder (
+order_id INT AUTO_INCREMENT PRIMARY KEY,
+tradeNo LONG,
+`status` INT DEFAULT 1
+)

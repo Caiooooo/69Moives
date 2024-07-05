@@ -53,4 +53,6 @@ public class PlayController {
         memberService.updateVip(email, 1);
         return "/index/logOut";
     }
+
+
 }
