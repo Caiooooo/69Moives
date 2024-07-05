@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<link href="/css/prodList.css" rel="stylesheet" type="text/css">
+	<script src="/js/jquery-1.4.2.js"></script>
+	<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+<center>
+	<div id="top" th:insert="top.html"/>
+<div id="content">
+	<a href="/export/download">下载所有数据</a>
+	<br>
+	<div id="main" style="width: 600px;height:400px;"></div>
+	<div id="second" style="width: 600px;height:400px;"></div>
+	<div id="third" style="width: 600px;height:400px;"></div>
+
+
+	<script type="text/javascript">
+		// 从Thymeleaf中获取数据
+		// 提取花名和销量数据
+		var flowerNames = [];
+		var flowerSales = [];
+
+		$.ajax({
+			type: "GET",
+			url:"/export/data",
+			dataType:"json",
+			async:false,
+			success:function (result){
+				for(var i =0;i<result.length;i++){
+					flowerNames.push(result[i].fname);
+					flowerSales.push(result[i].price);
+				}
+			},
+			error :function (errorMsg){
+				alert("读取失败！");
+			}
+		})
+
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('main'));
+
+		// 指定图表的配置项和数据
+		var option = {
+			title: {
+				text: '电影热度排行'
+			},
+			tooltip: {},
+			legend: {
+				data: ['播放次数']
+			},
+			xAxis: {
+				data: flowerNames ,
+				axisLabel: {
+					interval: 0, // 显示所有标签
+					rotate: 45  // 标签旋转角度
+				}
+			},
+			yAxis: {
+
+			},
+			series: [{
+				name: '播放次数',
+				type: 'bar',
+				data: flowerSales
+			}]
+		};
+
+		// 使用刚指定的配置项和数据显示图表
+		myChart.setOption(option);
+	</script>
+
+	<script type="text/javascript">
+		// 从Thymeleaf中获取数据
+		var flowerNames = [];
+		var flowerSales = [];
+
+		$.ajax({
+			type: "GET",
+			url: "/export/data",
+			dataType: "json",
+			async: false,
+			success: function(result) {
+				for (var i = 0; i < result.length; i++) {
+					flowerNames.push(result[i].fname);
+					flowerSales.push({
+						name: result[i].fname,
+						value: result[i].price
+					});
+				}
+			},
+			error: function(errorMsg) {
+				alert("读取失败！");
+			}
+		});
+
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('second'));
+
+		// 指定图表的配置项和数据
+		var option = {
+			title: {
+				text: '电影热度饼图'
+			},
+			tooltip: {
+				trigger: 'item',
+				formatter: '{a} <br/>{b} : {c} ({d}%)'
+			},
+			legend: {
+				orient: 'vertical',
+				left: 'left',
+				data: flowerNames,
+				top:'20%'
+			},
+			series: [{
+				name: '播放次数',
+				type: 'pie',
+				radius: '55%',
+				center: ['50%', '60%'],
+				data: flowerSales,
+				emphasis: {
+					itemStyle: {
+						shadowBlur: 10,
+						shadowOffsetX: 10,
+						shadowColor: 'rgba(0, 0, 0, 0.5)'
+					}
+				}
+			}]
+		};
+
+		// 使用刚指定的配置项和数据显示图表
+		myChart.setOption(option);
+	</script>
+
+	<script type="text/javascript">
+		// 从Thymeleaf中获取数据
+		// 提取花名和销量数据
+		var flowerNames = [];
+		var flowerSales = [];
+
+		$.ajax({
+			type: "GET",
+			url:"/export/datarev",
+			dataType:"json",
+			async:false,
+			success:function (result){
+				for(var i =0;i<result.length;i++){
+					flowerNames.push(result[i].fname);
+					flowerSales.push(result[i].price);
+				}
+			},
+			error :function (errorMsg){
+				alert("读取失败！");
+			}
+		})
+
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('third'));
+
+		// 指定图表的配置项和数据
+		var option = {
+			title: {
+				text: '电影热度折线图'
+			},
+			tooltip: {},
+			legend: {
+				data: ['播放次数']
+			},
+			xAxis: {
+				data: flowerNames ,
+				axisLabel: {
+					interval: 0, // 显示所有标签
+					rotate: 45  // 标签旋转角度
+				}
+			},
+			yAxis: {
+
+			},
+			series: [{
+				name: '播放次数',
+				type: 'line',
+				data: flowerSales
+			}]
+		};
+
+		// 使用刚指定的配置项和数据显示图表
+		myChart.setOption(option);
+	</script>
+
+</div>
+</div>
+</div>
+	<div id="bottom" th:insert="bottom.html"/>
+</center>
+</body>
+</html>
